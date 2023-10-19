@@ -1,10 +1,11 @@
+li {
+  cursor: pointer;
+  transition: 0.3s all;
+}
 
-/* side-menu {
+ul {
   position: fixed;
   top: 20px;
   left: 20px;
   z-index: 999;
-} */
-
-
-/* width: 180px; */
+}
