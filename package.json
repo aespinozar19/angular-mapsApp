@@ -3,14 +3,15 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve -o",
+    "start": "npm run envs && ng serve -o",
     "build": "ng build",
     "build:href": "ng build --base-href ./",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "delete:docs": "del docs",
     "copy:dist": "copyfiles dist/maps-app/* ./docs -f",
-    "build:github": "npm run delete:docs && npm run build:href && npm run copy:dist"
+    "build:github": "npm run delete:docs && node ./scripts/set-envs.js && npm run build:href && npm run copy:dist",
+    "envs": "node ./scripts/set-envs.js"
   },
   "private": true,
   "dependencies": {
@@ -31,6 +32,7 @@
     "@angular/cli": "~16.2.1",
     "@angular/compiler-cli": "^16.2.0",
     "@types/jasmine": "~4.3.0",
+    "dotenv": "^16.3.1",
     "jasmine-core": "~4.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
